@@ -8,37 +8,37 @@
 #include <stdlib.h>
 int main(int argc, char *argv[])
 {
-	setbuf(stdout, NULL);
+	setbuf(stdout, NULL);   //обнуляем буфер
 	int s;
 	char op;
 	float *a,*b;
 	printf("Размер векторов: ");
-	scanf("%i",&s);
-	a=malloc(s*sizeof(int));
+	scanf("%i",&s);              //вводим размер векторов
+	a=malloc(s*sizeof(int));      //выделяем память на первый вектор
 	printf("Введите первый вектор: ");
-	for (int i=0;i<s;i++) scanf("%f",&a[i]);
-	b=malloc(s*sizeof(int));
+	for (int i=0;i<s;i++) scanf("%f",&a[i]);      //вводим сам вектор
+	b=malloc(s*sizeof(int));                      //выделяем память на второй вектор
 	printf("Введите второй вектор: ");
-    for (int i=0;i<s;i++) scanf("%f",&b[i]);
+    for (int i=0;i<s;i++) scanf("%f",&b[i]);      //вводим второй вектор
     printf("Операция +-*?");
-    scanf(" %c",&op);
+    scanf(" %c",&op);          //вводим операцию, для ветвления в switch
     switch(op)
     {
-    case '+':
+    case '+':                 //для сложения
     	printf("Получаем: ");
-    	for (int i=0;i<s;i++) printf("%f  ",a[i]+b[i]);
+    	for (int i=0;i<s;i++) printf("%f  ",a[i]+b[i]);   //вывод вектора(подпишу один раз)
     	break;
-    case '-':
+    case '-':                 //для вычетания
     	printf("Получаем: ");
     	for (int i=0;i<s;i++) printf("%f  ",a[i]-b[i]);
     	break;
-    case '*':
+    case '*':                 //для произведения
     	printf("Получаем: ");
     	for (int i=0;i<s;i++) printf("%f  ",a[i]*b[i]);
     	break;
     default: printf("Такого не умеем");
     }
-    free(a);
+    free(a);       //Освобождаем память
     free(b);
 	return 0;
 }
